@@ -1,0 +1,38 @@
+ssh ec2@{ip} -i privateKeyFile
+
+fingerprint passphrase student1
+
+sudo dnf install git
+
+git clone https://github.com/MikolajSuchan/computer-programming-4-2024.git
+
+sudo dnf java-17-amazon-corretto
+
+wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+
+tar -xvzf apache-maven-3.9.9-bin.tar.gz
+
+sudo dnf install tree -y
+
+mkdir /home/ec2-user/bin
+
+ln -s /home/ec2-user/apache-maven-3.9.9/bin/mvn /home/ec2-user/bin/mvn
+
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.5</version>
+</parent>
+
+<build>
+<plugins>
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+</plugins>
+</build>
+
+mvn package -DskipTests
+
+sudo java -jar -Dserver.port=80 target/CreditCard-1.0-SNAPSHOT.jar
