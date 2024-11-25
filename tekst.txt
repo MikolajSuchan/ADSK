@@ -1,4 +1,4 @@
-ssh ec2@{ip} -i privateKeyFile
+ssh ec2-user@ ip -i privateKeyFile
 
 fingerprint passphrase student1
 
@@ -35,4 +35,4 @@ ln -s /home/ec2-user/apache-maven-3.9.9/bin/mvn /home/ec2-user/bin/mvn
 
 mvn package -DskipTests
 
-sudo java -jar -Dserver.port=80 target/CreditCard-1.0-SNAPSHOT.jar
+sudo java -jar -Dserver.port=8080 target/CreditCard-1.0-SNAPSHOT.jar
